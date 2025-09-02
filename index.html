@@ -2,16 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="favicon.ico" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#333333" />
     <title>Leonard Lindgren</title>
+
+    <!-- Opengraph tags -->
+    <meta property="og:title" content="Leonard Lindgren" />
+    <meta
+      property="og:description"
+      content="Portfolio website of Leonard Lindgren"
+    />
+    <meta
+      property="og:image"
+      content="https://lindgrenleonard.github.io/cloudberry.png"
+    />
+    <meta property="og:image:alt" content="Pixelated cloudberry" />
+    <meta property="og:url" content="https://lindgrenleonard.github.io" />
+    <meta property="og:type" content="website" />
+
+    <!-- SEO tags -->
+    <meta
+      name="description"
+      content="Leonard Lindgren's portfolio showcasing projects"
+    />
+    <meta
+      name="keywords"
+      content="web developer, portfolio, Leonard Lindgren, programming"
+    />
+    <meta name="author" content="Leonard Lindgren" />
+    <link rel="canonical" href="https://lindgrenleonard.github.io" />
+
     <style>
       body {
         font-family: "Montserrat", sans-serif;
@@ -30,7 +62,11 @@
   </head>
   <body>
     <header></header>
-    <main></main>
+    <main>
+      <button popovertarget="my-popover">Open Popover</button>
+
+      <div popover id="my-popover">Greetings, one and all!</div>
+    </main>
     <footer>
       <small>
         <p>&copy; 2025 Leonard Lindgren</p>
