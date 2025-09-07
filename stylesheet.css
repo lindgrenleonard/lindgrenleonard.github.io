@@ -1,0 +1,15 @@
+:root {
+  color-scheme: light dark;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: light-dark(#f0f0f0, #1c1b22);
+  color: light-dark(#333, #f0f0f0);
+}
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
