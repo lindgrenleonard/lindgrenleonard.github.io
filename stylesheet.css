@@ -18,7 +18,6 @@ header {
   justify-content: center;
   gap: 20px;
   padding: 20px;
-  background-color: light-dark(#ffffff, #2c2b32);
 }
 header a {
   text-decoration: none;
