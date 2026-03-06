@@ -15,7 +15,10 @@ function readCache() {
 
 function writeCache(data) {
   try {
-    localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data }));
+    localStorage.setItem(
+      CACHE_KEY,
+      JSON.stringify({ timestamp: Date.now(), data }),
+    );
   } catch {}
 }
 
@@ -43,7 +46,7 @@ if (!repoData) {
   const repositories = await response.json();
   const sortedRepos = repositories
     .filter((a) => a.fork === false)
-    .toSorted((a, b) => new Date(a.pushed_at) - new Date(b.pushed_at));
+    .toSorted((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
 
   const languages = await Promise.all(
     sortedRepos.map((repo) => fetch(repo.languages_url).then((r) => r.json())),
@@ -57,19 +60,23 @@ if (!repoData) {
   writeCache(repoData);
 }
 
-const html = repoData
+const isHome = location.pathname === "/" || location.pathname === "/index.html";
+const displayData = isHome ? repoData.slice(0, 1) : repoData;
+
+const html = displayData
   .map(({ repo, languages }) => {
     const langs = languages
       .map((l) => `<span class="lang-tag">${escapeHTML(l)}</span>`)
       .join("");
     return `<div class="repo-card">
       <div class="repo-header">
-        <h2><a href="${escapeHTML(repo.html_url)}" target="_blank" rel="noopener">${escapeHTML(repo.name)}</a></h2>
+        <h2><a href="${escapeHTML(repo.html_url)}" target="_blank">${escapeHTML(repo.name)}</a></h2>
         <div class="repo-langs">${langs}</div>
       </div>
       <p>${repo.description ? escapeHTML(repo.description) : "Have not gotten around to writing a description for this one"}</p>
+      <span>Last update at: ${new Date(repo.pushed_at).toLocaleDateString()}</span>
     </div>`;
   })
   .join("");
 
-document.querySelector("main").innerHTML = policy.createHTML(html);
+document.getElementById("repo-cards").innerHTML = policy.createHTML(html);
