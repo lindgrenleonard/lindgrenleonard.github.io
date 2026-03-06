@@ -35,6 +35,9 @@ header a {
 header a:hover {
   text-decoration: underline;
 }
+header a[aria-current="page"] {
+  border-bottom: 2px solid currentColor;
+}
 .social-link {
   text-decoration: none;
   color: inherit;
