@@ -41,8 +41,13 @@ header a[aria-current="page"] {
 .social-link {
   text-decoration: none;
   color: inherit;
-  font-size: x-large;
   margin: 0 10px;
+}
+.social-link svg {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  fill: currentColor;
 }
 .repo-card {
   padding: 16px 20px;
